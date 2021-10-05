@@ -15,10 +15,10 @@ import java.time.LocalDate;
 import java.util.Objects;
 
 @ApiModel(value = "AccountType", description = "a Dto that represents AccountType")
-public class AccountTypeDto{
+public class AccountTypeDto implements Serializable{
 
 
-
+    private static final long serialVersionUID = -1981098037448474982L;
     private String mnemonic;
         private String Account_Name;
         private LocalDate Start_Date;
@@ -47,6 +47,7 @@ public class AccountTypeDto{
             notes = "Uniquely identifies the account type",
             dataType = "java.lang.String",
             example = "MILES",
+            allowEmptyValue = false,
             required = true)
 
     public String getMnemonic() {

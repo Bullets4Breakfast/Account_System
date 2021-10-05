@@ -7,7 +7,7 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Table(name = "")
+@Table(name = "TypeAccount", schema = "DiscoveryVitality")
 public class TypeAccount implements Serializable {
     private static final long serialVersionUID = -161245225444051659L;
 

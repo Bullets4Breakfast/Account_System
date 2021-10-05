@@ -34,19 +34,18 @@ public class DemoController {
 
     }
 
-         @GetMapping("/all")
-         @ApiOperation(value = "Gets all the configured Account Types", notes = "Returns a list of account Types")
-        @ApiResponses(value = {
-        @ApiResponse(code = 200, message = "The Ping was received and echoed", response = GeneralResponse.class),
-        @ApiResponse(code = 400, message = "Bad Request", response = GeneralResponse.class),
-        @ApiResponse(code = 404, message = "Not found", response = GeneralResponse.class),
-        @ApiResponse(code = 500, message = "Internal Server Error", response = GeneralResponse.class)})
+    @GetMapping("/all")
+    @ApiOperation(value = "Gets all the configured Account Types", notes = "Returns a list of account Types")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "The Ping was received and echoed", response = GeneralResponse.class),
+            @ApiResponse(code = 400, message = "Bad Request", response = GeneralResponse.class),
+            @ApiResponse(code = 404, message = "Not found", response = GeneralResponse.class),
+            @ApiResponse(code = 500, message = "Internal Server Error", response = GeneralResponse.class)})
     public ResponseEntity<GeneralResponse<List<AccountTypeDto>>> getAll() {
-    List<AccountTypeDto> accountTypes = fetchAccountTypeFlow.getAllAccountTypes();
-    GeneralResponse<List<AccountTypeDto>> response = new GeneralResponse<>(true, accountTypes);
-    return new ResponseEntity<>(response, HttpStatus.OK);
+        List<AccountTypeDto> accountTypes = fetchAccountTypeFlow.getAllAccountTypes();
+        GeneralResponse<List<AccountTypeDto>> response = new GeneralResponse<>(true, accountTypes);
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
-
 
 
     @PostMapping("")
@@ -58,12 +57,34 @@ public class DemoController {
     })
     public ResponseEntity<GeneralResponse<AccountTypeDto>> create(
             @ApiParam(value = "Request body to create a new AccountType.", required = true)
-            @RequestBody AccountTypeDto accountType){
+            @RequestBody AccountTypeDto accountType) {
         AccountTypeDto accountTypeResponse = createAccountTypeFlow.create(accountType);
-        GeneralResponse<AccountTypeDto> response = new GeneralResponse<>(true,accountTypeResponse);
-        return  new ResponseEntity<>(response,HttpStatus.CREATED);
+        GeneralResponse<AccountTypeDto> response = new GeneralResponse<>(true, accountTypeResponse);
+        return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
+
+    @GetMapping("{mneomonic}")
+    @ApiOperation(value = "Fetches the specified AccountType.", notes = "Fetches the AccountType corresponding to the given mnemonic.")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Goal found"),
+            @ApiResponse(code = 400, message = "Bad Request", response = GeneralResponse.class),
+            @ApiResponse(code = 404, message = "Resource not found", response = GeneralResponse.class),
+            @ApiResponse(code = 500, message = "Internal Server Error", response = GeneralResponse.class),
+    })
+    public ResponseEntity<GeneralResponse<AccountTypeDto>> getAccountType(
+            @ApiParam(value = "The mnemonic that uniquely identifies the AccountType.",
+            example = "MILES",
+            name = "mnemonic",
+            required = true)
+        @PathVariable("mnemonic") final String mnemonic){
+
+        AccountTypeDto accountType = fetchAccountTypeFlow.getAccountTypeByMnemonic(mnemonic);
+
+        GeneralResponse<AccountTypeDto> response = new GeneralResponse<>(true , accountType);
+
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
 
 
 }
