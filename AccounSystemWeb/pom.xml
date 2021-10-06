@@ -17,12 +17,12 @@
     <dependencies>
         <dependency>
             <groupId>za.ac.nwu.ac</groupId>
-            <artifactId>AccountSystemDomain</artifactId>
+            <artifactId>AccounsSystemDomain</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>za.ac.nwu.ac</groupId>
-            <artifactId>AccountSystemLogic</artifactId>
+            <artifactId>AccounSystemLogic</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>

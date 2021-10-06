@@ -20,26 +20,26 @@ public class AccountTypeDto implements Serializable{
 
     private static final long serialVersionUID = -1981098037448474982L;
     private String mnemonic;
-        private String Account_Name;
-        private LocalDate Start_Date;
-
-        private Set<AccountLog> accountLogs;
+    private String Account_Name;
+    private LocalDate Start_Date;
 
 
-
-        public AccountTypeDto(String mnemonic, String account_Name, LocalDate start_Date) {
-            this.mnemonic = mnemonic;
-            this.Account_Name = account_Name;
-            this.Start_Date = start_Date;
-        }
-
-        public AccountTypeDto(TypeAccount typeAccount) {
-            this.setAccount_Name(typeAccount.getAccount_Name());
-            this.setStart_Date(typeAccount.getStart_Date());
-            this.setMnemonic(typeAccount.getMnemonic());
-        }
     public AccountTypeDto() {
     }
+
+
+    public AccountTypeDto(String mnemonic, String account_Name, LocalDate start_Date) {
+        this.mnemonic = mnemonic;
+        this.Account_Name = account_Name;
+        this.Start_Date = start_Date;
+    }
+
+    public AccountTypeDto(TypeAccount typeAccount) {
+        this.setAccount_Name(typeAccount.getAccount_Name());
+        this.setStart_Date(typeAccount.getStart_Date());
+        this.setMnemonic(typeAccount.getMnemonic());
+    }
+
 
     @ApiModelProperty(position = 1,
             value = "AccountType Mnemonic",
@@ -93,10 +93,7 @@ public class AccountTypeDto implements Serializable{
     }
 
 
-    @JsonIgnore
-    public TypeAccount getAccountType(){
-        return new TypeAccount(getMnemonic(),getAccount_Name(), getStart_Date());
-    }
+
 
 
         @Override
@@ -106,6 +103,11 @@ public class AccountTypeDto implements Serializable{
             TypeAccount that = (TypeAccount) o;
             return Objects.equals(mnemonic, that.getMnemonic()) && Objects.equals(Account_Name, that.getAccount_Name()) && Objects.equals(Start_Date, that.getStart_Date());
         }
+
+    @JsonIgnore
+    public TypeAccount getAccountType(){
+        return new TypeAccount(getMnemonic(),getAccount_Name(), getStart_Date());
+    }
 
 
 

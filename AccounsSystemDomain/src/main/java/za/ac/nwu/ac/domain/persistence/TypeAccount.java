@@ -15,6 +15,7 @@ public class TypeAccount implements Serializable {
     private String mnemonic;
     private String Account_Name;
     private LocalDate Start_Date;
+
     private Set<AccountLog> accountLogs;
 
     public TypeAccount(Long type_Account_Id, String mnemonic, String account_Name,LocalDate start_Date) {

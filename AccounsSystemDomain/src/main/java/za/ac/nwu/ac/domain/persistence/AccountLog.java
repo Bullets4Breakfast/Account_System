@@ -39,19 +39,6 @@ public class AccountLog implements Serializable{
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ACCOUNT_LOG_SEQ")
 
 
-    private Set<AccountLog> accountLogs = new HashSet<AccountLog>() ;
-    @JoinColumn(name = "TYPE_ACCOUNT_ID")
-    @ManyToOne(fetch = FetchType.LAZY)
-    public TypeAccount getTYPE_ACCOUNT_ID() {
-        return TYPE_ACCOUNT_ID;
-    }
-
-
-    public void setTYPE_ACCOUNT_ID(TypeAccount TYPE_ACCOUNT_ID) {
-        this.TYPE_ACCOUNT_ID = TYPE_ACCOUNT_ID;
-    }
-
-
     @Column(name = "ACCOUNT_LOG_ID")
     public Long getACCOUNT_LOG_ID() {
         return ACCOUNT_LOG_ID;
@@ -60,6 +47,16 @@ public class AccountLog implements Serializable{
     public void setACCOUNT_LOG_ID(Long ACCOUNT_LOG_ID) {
         this.ACCOUNT_LOG_ID = ACCOUNT_LOG_ID;
     }
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "TYPE_ACCOUNT_ID")
+
+    public TypeAccount getTYPE_ACCOUNT_ID() {
+        return TYPE_ACCOUNT_ID;
+    }
+    public void setTYPE_ACCOUNT_ID(TypeAccount TYPE_ACCOUNT_ID) {
+        this.TYPE_ACCOUNT_ID = TYPE_ACCOUNT_ID;
+    }
+
 
     @Column(name = "MEMBER_ID")
     public Long getMEMBER_ID() {

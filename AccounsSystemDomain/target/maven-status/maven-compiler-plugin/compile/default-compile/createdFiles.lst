@@ -2,5 +2,4 @@ za\ac\nwu\ac\domain\persistence\TypeAccount.class
 za\ac\nwu\ac\domain\dto\AccountLogDto.class
 za\ac\nwu\ac\domain\dto\AccountTypeDto.class
 za\ac\nwu\ac\domain\persistence\AccountLog.class
-za\ac\nwu\ac\domain\dto\Demo.class
 za\ac\nwu\ac\domain\service\GeneralResponse.class
