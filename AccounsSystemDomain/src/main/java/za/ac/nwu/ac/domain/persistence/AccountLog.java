@@ -11,7 +11,7 @@ import java.util.Set;
 
 
 @Entity
-@Table(name = "ACCOUNT_LOG", schema = "DiscoveryVitality")
+@Table(name = "ACCOUNT_LOG", schema = "cmpg323ACCOUNTSYSTEM")
 public class AccountLog implements Serializable{
     private static final long serialVersionUID = -3422032160685297948L;
 
@@ -35,7 +35,7 @@ public class AccountLog implements Serializable{
 
 
     @Id
-    @SequenceGenerator(name = "ACCOUNT_LOG_SEQ", sequenceName = "ACCOUNT_LOG.ACCOUNT_LOG_SEQ",allocationSize = 1)
+    @SequenceGenerator(name = "ACCOUNT_LOG_SEQ", sequenceName = "RUBENACC.ACCOUNT_LOG_SEQ",allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "ACCOUNT_LOG_SEQ")
 
 

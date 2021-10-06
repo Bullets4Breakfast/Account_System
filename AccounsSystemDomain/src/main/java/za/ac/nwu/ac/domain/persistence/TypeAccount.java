@@ -7,7 +7,7 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Table(name = "TypeAccount", schema = "DiscoveryVitality")
+@Table(name = "TypeAccount", schema = "cmpg323ACCOUNTSYSTEM")
 public class TypeAccount implements Serializable {
     private static final long serialVersionUID = -161245225444051659L;
 
@@ -35,7 +35,7 @@ public class TypeAccount implements Serializable {
     }
 
     @Id
-    @SequenceGenerator(name = "TYPE_ACCOUNT_SEQ", sequenceName = "TYPE_ACCOUNT.TYPE_ACCOUNT_SEQ",allocationSize = 1)
+    @SequenceGenerator(name = "TYPE_ACCOUNT_SEQ", sequenceName = "RUBENACC.TYPE_ACCOUNT_SEQ",allocationSize = 1)
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "TYPE_ACCOUNT_SEQ")
 
 
@@ -47,7 +47,7 @@ public class TypeAccount implements Serializable {
     public void setType_Account_Id(Long type_Account_Id) {
         Type_Account_Id = type_Account_Id;
     }
-    @Column(name = "mnemonic")
+    @Column(name = "MNEMONIC")
     public String getMnemonic() {
         return mnemonic;
     }
@@ -55,7 +55,7 @@ public class TypeAccount implements Serializable {
     public void setMnemonic(String mnemonic) {
         this.mnemonic = mnemonic;
     }
-    @Column(name = "Account_Name")
+    @Column(name = "ACCOUNT_NAME")
     public String getAccount_Name() {
         return Account_Name;
     }
@@ -64,7 +64,7 @@ public class TypeAccount implements Serializable {
         Account_Name = account_Name;
     }
 
-    @Column(name = "Start_Date")
+    @Column(name = "START_DATE")
     public LocalDate getStart_Date() {
         return Start_Date;
     }
