@@ -11,7 +11,7 @@ import java.util.Set;
 
 
 @Entity
-@Table(name = "ACCOUNT_LOG", schema = "cmpg323ACCOUNTSYSTEM")
+@Table(name = "ACCOUNT_LOG", schema = "RUBENACC")
 public class AccountLog implements Serializable{
     private static final long serialVersionUID = -3422032160685297948L;
 

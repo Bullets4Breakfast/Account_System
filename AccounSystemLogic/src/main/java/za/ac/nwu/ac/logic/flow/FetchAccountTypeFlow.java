@@ -10,6 +10,6 @@ public interface FetchAccountTypeFlow {
 
 
 
-//    AccountTypeDto getAccountTypeByMnemonic(String mnemonic);
+    AccountTypeDto getAccountTypeByMnemonic(String mnemonic);
 
 }

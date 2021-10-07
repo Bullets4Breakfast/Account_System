@@ -7,7 +7,7 @@ import java.util.Objects;
 import java.util.Set;
 
 @Entity
-@Table(name = "TypeAccount", schema = "cmpg323ACCOUNTSYSTEM")
+@Table(name = "TypeAccount", schema = "RUBENACC")
 public class TypeAccount implements Serializable {
     private static final long serialVersionUID = -161245225444051659L;
 
@@ -64,7 +64,7 @@ public class TypeAccount implements Serializable {
         Account_Name = account_Name;
     }
 
-    @Column(name = "START_DATE")
+    @Column(name = "TART_DATE")
     public LocalDate getStart_Date() {
         return Start_Date;
     }
