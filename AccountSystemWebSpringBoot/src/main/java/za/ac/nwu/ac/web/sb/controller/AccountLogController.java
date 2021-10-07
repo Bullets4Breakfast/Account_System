@@ -26,7 +26,7 @@ public class AccountLogController {
     private  CreateAccountLogFlow createAccountLogFlow;
     private Object AccountLog;
 
-    public AccountLogController(CreateAccountLogFlow createAccountLogFlow, FetchAccountLogFlow fetchAccountTypeFlow) {
+    public AccountLogController(CreateAccountLogFlow createAccountLogFlow, FetchAccountLogFlow fetchAccountLogFlow) {
         this.fetchAccountLogFlow = fetchAccountLogFlow;
         this.createAccountLogFlow = createAccountLogFlow;
     }
@@ -60,7 +60,7 @@ public class AccountLogController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-//    @GetMapping("{mneomonic}")
+//    @GetMapping("{mnemonic}")
 //    @ApiOperation(value = "Fetches the specified AccountType.", notes = "Fetches the AccountType corresponding to the given mnemonic.")
 //    @ApiResponses(value = {
 //            @ApiResponse(code = 200, message = "Goal found"),

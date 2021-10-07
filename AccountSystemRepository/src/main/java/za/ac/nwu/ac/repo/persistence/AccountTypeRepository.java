@@ -8,15 +8,15 @@ import za.ac.nwu.ac.domain.persistence.TypeAccount;
 
 @Repository
 public interface AccountTypeRepository extends JpaRepository<TypeAccount, Long>{
-//    @Query(value = "SELECT " +
-//            "       TYPE_ACCOUNT_ID," +
-//            "       ACCOUNT_NAME," +
-//            "       START_DATE," +
-//            "       MNEMONIC," +
-//            "      FROM " +
-//            "       TypeAccount.DiscoveryVitality" +
-//            "      WHERE MNEMONIC = :mnemonic: ", nativeQuery = true)
-//    TypeAccount getAccountTypeByMnemonicNativeQuery(String mnemonic);
+    @Query(value = "SELECT " +
+            "       TYPE_ACCOUNT_ID," +
+            "       MNEMONIC," +
+            "       ACCOUNT_NAME," +
+            "       TART_DATE" +
+            "      FROM " +
+            "       RUBENACC.TYPE_ACCOUNT" +
+            "      WHERE MNEMONIC = :mnemonic ", nativeQuery = true)
+    TypeAccount getAccountTypeByMnemonicNativeQuery(String mnemonic);
 //
 //    @Query(value = "SELECT " +
 //            "       at" +
