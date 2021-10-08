@@ -25,7 +25,7 @@ public class CreateAccountLogFlowImpl implements CreateAccountLogFlow {
     public AccountLogDto create(AccountLogDto accountLogDto){
         accountLogDto.setACCOUNT_LOG_ID(null);
 
-        TypeAccount typeAccount = fetchAccountTypeFlow.getAccountTypeDbEntityByMnemonic(accountLogDto.getTypeAccountMnemonic());
+        TypeAccount typeAccount = fetchAccountTypeFlow.getAccountTypeDbEntityByMnemonic(accountLogDto.getAccountTypeByMnemonic());
         AccountLog accountLog = accountLogDto.buildAccountLog(typeAccount);
 
         AccountLog createdAccountLog = accountLogTranslator.save(accountLog);
