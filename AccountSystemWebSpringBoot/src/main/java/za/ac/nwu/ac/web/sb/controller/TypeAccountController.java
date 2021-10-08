@@ -63,11 +63,6 @@ public class TypeAccountController {
 
 
 
-
-
-
-
-
     @GetMapping("{mnemonic}")
     @ApiOperation(value = "Fetches the specified AccountType.", notes = "Fetches the AccountType corresponding to the given mnemonic.")
     @ApiResponses(value = {

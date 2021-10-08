@@ -25,12 +25,11 @@ public class CreateAccountLogFlowImpl implements CreateAccountLogFlow {
     public AccountLogDto create(AccountLogDto accountLogDto){
         accountLogDto.setACCOUNT_LOG_ID(null);
 
-//        TypeAccount typeAccount = fetchAccountTypeFlow.getAllAccountTyp();
-//        AccountLog accountLog = accountLogDto.buildAccountLog(typeAccount);
-//
-//        AccountLog createAccountLog = accountLogTranslator.save(accountLog);
-//        return new AccountLogDto(createAccountLog);
-            return null;
+        TypeAccount typeAccount = fetchAccountTypeFlow.getAccountTypeDbEntityByMnemonic(accountLogDto.getTypeAccountMnemonic());
+        AccountLog accountLog = accountLogDto.buildAccountLog(typeAccount);
+
+        AccountLog createdAccountLog = accountLogTranslator.save(accountLog);
+        return new AccountLogDto(createdAccountLog);
     }
 
 }

@@ -12,18 +12,19 @@ public class AccountLogDto implements Serializable {
 
     private static final long serialVersionUID = -8510683858813529847L;
     private Long ACCOUNT_LOG_ID;
-    private TypeAccount TYPE_ACCOUNT_ID;
+    private String TypeAccountMnemonic;
     private Long MEMBER_ID;
     private Long MILES_GAIN;
     private Long MILES_USED;
     private LocalDate DATE_OF_TRANSACTION;
 
+
     public AccountLogDto() {
     }
 
-    public AccountLogDto(Long ACCOUNT_LOG_ID, TypeAccount typeAccount, Long MEMBER_ID, Long MILES_GAIN, Long MILES_USED, LocalDate DATE_OF_TRANSACTION ){
+    public AccountLogDto(Long ACCOUNT_LOG_ID,String typeAccountMnemonic, Long MEMBER_ID, Long MILES_GAIN, Long MILES_USED, LocalDate DATE_OF_TRANSACTION ){
         this.ACCOUNT_LOG_ID = ACCOUNT_LOG_ID;
-        this.TYPE_ACCOUNT_ID = typeAccount;
+        this.TypeAccountMnemonic = typeAccountMnemonic;
         this.MEMBER_ID = MEMBER_ID;
         this.MILES_GAIN = MILES_GAIN;
         this.MILES_USED = MILES_USED;
@@ -33,6 +34,7 @@ public class AccountLogDto implements Serializable {
 
     public AccountLogDto(AccountLog accountLog ){
         this.ACCOUNT_LOG_ID = accountLog.getACCOUNT_LOG_ID();
+        this.TypeAccountMnemonic = accountLog.getTYPE_ACCOUNT().getMnemonic();
         this.MEMBER_ID = accountLog.getMEMBER_ID();
         this.MILES_GAIN = accountLog.getMILES_GAIN();
         this.MILES_USED = accountLog.getMILES_USED();
@@ -51,12 +53,12 @@ public class AccountLogDto implements Serializable {
         this.ACCOUNT_LOG_ID = ACCOUNT_LOG_ID;
     }
 
-    public TypeAccount getTYPE_ACCOUNT_ID() {
-        return TYPE_ACCOUNT_ID;
+    public String getTypeAccountMnemonic() {
+        return TypeAccountMnemonic;
     }
 
-    public void setTYPE_ACCOUNT_ID(TypeAccount TYPE_ACCOUNT_ID) {
-        this.TYPE_ACCOUNT_ID = TYPE_ACCOUNT_ID;
+    public void setTypeAccountMnemonic(String typeAccountMnemonic) {
+        TypeAccountMnemonic = typeAccountMnemonic;
     }
 
     public Long getMEMBER_ID() {
@@ -95,24 +97,28 @@ public class AccountLogDto implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        AccountLog that = (AccountLog) o;
-        return Objects.equals(ACCOUNT_LOG_ID, that.getACCOUNT_LOG_ID()) && Objects.equals(TYPE_ACCOUNT_ID, that.getTYPE_ACCOUNT_ID()) && Objects.equals(MEMBER_ID, that.getMEMBER_ID()) && Objects.equals(MILES_GAIN, that.getMILES_GAIN()) && Objects.equals(MILES_USED, that.getMILES_USED()) && Objects.equals(DATE_OF_TRANSACTION, that.getDATE_OF_TRANSACTION());
+        AccountLogDto that = (AccountLogDto) o;
+        return Objects.equals(ACCOUNT_LOG_ID, that.ACCOUNT_LOG_ID) && Objects.equals(TypeAccountMnemonic, that.TypeAccountMnemonic) && Objects.equals(MEMBER_ID, that.MEMBER_ID) && Objects.equals(MILES_GAIN, that.MILES_GAIN) && Objects.equals(MILES_USED, that.MILES_USED) && Objects.equals(DATE_OF_TRANSACTION, that.DATE_OF_TRANSACTION);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(ACCOUNT_LOG_ID, TYPE_ACCOUNT_ID, MEMBER_ID, MILES_GAIN, MILES_USED, DATE_OF_TRANSACTION);
+        return Objects.hash(ACCOUNT_LOG_ID, TypeAccountMnemonic, MEMBER_ID, MILES_GAIN, MILES_USED, DATE_OF_TRANSACTION);
     }
 
     @Override
     public String toString() {
         return "AccountLogDto{" +
                 "ACCOUNT_LOG_ID=" + ACCOUNT_LOG_ID +
-                ", TYPE_ACCOUNT_ID=" + TYPE_ACCOUNT_ID +
+                ", TypeAccountMnemonic='" + TypeAccountMnemonic + '\'' +
                 ", MEMBER_ID=" + MEMBER_ID +
                 ", MILES_GAIN=" + MILES_GAIN +
                 ", MILES_USED=" + MILES_USED +
                 ", DATE_OF_TRANSACTION=" + DATE_OF_TRANSACTION +
                 '}';
     }
+
+    //    public String getAccountByTypeMnemonic() {
+//        return ACCOUNT_LOG_ID;
+//    }
 }
