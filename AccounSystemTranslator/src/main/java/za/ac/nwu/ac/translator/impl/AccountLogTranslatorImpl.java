@@ -31,5 +31,10 @@ public class AccountLogTranslatorImpl implements AccountLogTranslator {
         return accountLogs;
     }
 
+    @Override
+    public AccountLog getAccountLogByPK(long transactionID) {
+        return repo.findById(transactionID).orElse(null) ;
+    }
+
 
 }

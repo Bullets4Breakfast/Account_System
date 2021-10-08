@@ -71,7 +71,7 @@ public class TypeAccount implements Serializable {
 
 
 
-    @OneToMany(targetEntity = AccountLog.class, fetch = FetchType.LAZY, mappedBy = "TYPE_ACCOUNT_ID", orphanRemoval = true, cascade = CascadeType.PERSIST)
+    @OneToMany(targetEntity = AccountLog.class, fetch = FetchType.LAZY, mappedBy = "TYPE_ACCOUNT", orphanRemoval = true, cascade = CascadeType.PERSIST)
     public Set<AccountLog> getAccountLog(){
         return accountLogs;
     }
