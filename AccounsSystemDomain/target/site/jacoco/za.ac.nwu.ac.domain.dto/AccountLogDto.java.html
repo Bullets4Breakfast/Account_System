@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AccountLogDto.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">AccounsSystemDomain</a> &gt; <a href="index.source.html" class="el_package">za.ac.nwu.ac.domain.dto</a> &gt; <span class="el_source">AccountLogDto.java</span></div><h1>AccountLogDto.java</h1><pre class="source lang-java linenums">package za.ac.nwu.ac.domain.dto;
+
+import za.ac.nwu.ac.domain.persistence.TypeAccount;
+import za.ac.nwu.ac.domain.persistence.AccountLog;
+
+import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.Objects;
+
+
+public class AccountLogDto implements Serializable {
+
+    private static final long serialVersionUID = -8510683858813529847L;
+    private Long ACCOUNT_LOG_ID;
+    private String TypeAccountMnemonic;
+    private Long MEMBER_ID;
+    private Long MILES_GAIN;
+    private Long MILES_USED;
+    private LocalDate DATE_OF_TRANSACTION;
+
+<span class="nc" id="L21">    public AccountLogDto(Long ACCOUNT_LOG_ID, String typeAccountMnemonic, Long MEMBER_ID, Long MILES_GAIN, Long MILES_USED, LocalDate DATE_OF_TRANSACTION) {</span>
+<span class="nc" id="L22">        this.ACCOUNT_LOG_ID = ACCOUNT_LOG_ID;</span>
+<span class="nc" id="L23">        this.TypeAccountMnemonic = typeAccountMnemonic;</span>
+<span class="nc" id="L24">        this.MEMBER_ID = MEMBER_ID;</span>
+<span class="nc" id="L25">        this.MILES_GAIN = MILES_GAIN;</span>
+<span class="nc" id="L26">        this.MILES_USED = MILES_USED;</span>
+<span class="nc" id="L27">        this.DATE_OF_TRANSACTION = DATE_OF_TRANSACTION;</span>
+<span class="nc" id="L28">    }</span>
+
+<span class="nc" id="L30">    public AccountLogDto(AccountLog accountLog){</span>
+<span class="nc" id="L31">       this.ACCOUNT_LOG_ID = accountLog.getACCOUNT_LOG_ID();</span>
+<span class="nc" id="L32">       this.MEMBER_ID = accountLog.getMEMBER_ID();</span>
+<span class="nc" id="L33">       this.MILES_GAIN = accountLog.getMILES_GAIN();</span>
+<span class="nc" id="L34">       this.MILES_USED = accountLog.getMILES_USED();</span>
+<span class="nc" id="L35">       this.DATE_OF_TRANSACTION = accountLog.getDATE_OF_TRANSACTION();</span>
+<span class="nc" id="L36">       this.TypeAccountMnemonic = accountLog.getTYPE_ACCOUNT().getMnemonic();</span>
+<span class="nc" id="L37">    }</span>
+//
+//    public AccountLogDto(AccountLog createdAccountLog) {
+//    }
+
+    public AccountLog buildAccountLog(TypeAccount typeAccount) {
+<span class="nc" id="L43">        return new AccountLog(this.getACCOUNT_LOG_ID(),typeAccount,this.getMEMBER_ID(),this.getMILES_GAIN(),this.getMILES_USED(),this.getDATE_OF_TRANSACTION());</span>
+    }
+
+
+    public Long getACCOUNT_LOG_ID() {
+<span class="nc" id="L48">        return ACCOUNT_LOG_ID;</span>
+    }
+
+    public void setACCOUNT_LOG_ID(Long ACCOUNT_LOG_ID) {
+<span class="nc" id="L52">        this.ACCOUNT_LOG_ID = ACCOUNT_LOG_ID;</span>
+<span class="nc" id="L53">    }</span>
+
+    public String getAccountTypeByMnemonic() {
+<span class="nc" id="L56">        return TypeAccountMnemonic;</span>
+    }
+
+    public void setAccountTypeByMnemonic(String typeAccountMnemonic) {
+<span class="nc" id="L60">        TypeAccountMnemonic = typeAccountMnemonic;</span>
+<span class="nc" id="L61">    }</span>
+
+//    getAccountTypeByMnemonic
+
+    public Long getMEMBER_ID() {
+<span class="nc" id="L66">        return MEMBER_ID;</span>
+    }
+
+    public void setMEMBER_ID(Long MEMBER_ID) {
+<span class="nc" id="L70">        this.MEMBER_ID = MEMBER_ID;</span>
+<span class="nc" id="L71">    }</span>
+
+    public Long getMILES_GAIN() {
+<span class="nc" id="L74">        return MILES_GAIN;</span>
+    }
+
+    public void setMILES_GAIN(Long MILES_GAIN) {
+<span class="nc" id="L78">        this.MILES_GAIN = MILES_GAIN;</span>
+<span class="nc" id="L79">    }</span>
+
+    public Long getMILES_USED() {
+<span class="nc" id="L82">        return MILES_USED;</span>
+    }
+
+    public void setMILES_USED(Long MILES_USED) {
+<span class="nc" id="L86">        this.MILES_USED = MILES_USED;</span>
+<span class="nc" id="L87">    }</span>
+
+    public LocalDate getDATE_OF_TRANSACTION() {
+<span class="nc" id="L90">        return DATE_OF_TRANSACTION;</span>
+    }
+
+    public void setDATE_OF_TRANSACTION(LocalDate DATE_OF_TRANSACTION) {
+<span class="nc" id="L94">        this.DATE_OF_TRANSACTION = DATE_OF_TRANSACTION;</span>
+<span class="nc" id="L95">    }</span>
+
+    @Override
+    public boolean equals(Object o) {
+<span class="nc bnc" id="L99" title="All 2 branches missed.">        if (this == o) return true;</span>
+<span class="nc bnc" id="L100" title="All 4 branches missed.">        if (o == null || getClass() != o.getClass()) return false;</span>
+<span class="nc" id="L101">        AccountLogDto that = (AccountLogDto) o;</span>
+<span class="nc bnc" id="L102" title="All 12 branches missed.">        return Objects.equals(ACCOUNT_LOG_ID, that.ACCOUNT_LOG_ID) &amp;&amp; Objects.equals(TypeAccountMnemonic, that.TypeAccountMnemonic) &amp;&amp; Objects.equals(MEMBER_ID, that.MEMBER_ID) &amp;&amp; Objects.equals(MILES_GAIN, that.MILES_GAIN) &amp;&amp; Objects.equals(MILES_USED, that.MILES_USED) &amp;&amp; Objects.equals(DATE_OF_TRANSACTION, that.DATE_OF_TRANSACTION);</span>
+    }
+
+    @Override
+    public int hashCode() {
+<span class="nc" id="L107">        return Objects.hash(ACCOUNT_LOG_ID, TypeAccountMnemonic, MEMBER_ID, MILES_GAIN, MILES_USED, DATE_OF_TRANSACTION);</span>
+    }
+
+    @Override
+    public String toString() {
+<span class="nc" id="L112">        return &quot;AccountLogDto{&quot; +</span>
+                &quot;ACCOUNT_LOG_ID=&quot; + ACCOUNT_LOG_ID +
+                &quot;, TypeAccountMnemonic='&quot; + TypeAccountMnemonic + '\'' +
+                &quot;, MEMBER_ID=&quot; + MEMBER_ID +
+                &quot;, MILES_GAIN=&quot; + MILES_GAIN +
+                &quot;, MILES_USED=&quot; + MILES_USED +
+                &quot;, DATE_OF_TRANSACTION=&quot; + DATE_OF_TRANSACTION +
+                '}';
+    }
+
+
+
+
+    //
+//    public AccountLogDto() {
+//    }
+//
+//    public AccountLogDto(Long ACCOUNT_LOG_ID,String typeAccountMnemonic, Long MEMBER_ID, Long MILES_GAIN, Long MILES_USED, LocalDate DATE_OF_TRANSACTION ){
+//        this.ACCOUNT_LOG_ID = ACCOUNT_LOG_ID;
+//        this.TypeAccountMnemonic = typeAccountMnemonic;
+//        this.MEMBER_ID = MEMBER_ID;
+//        this.MILES_GAIN = MILES_GAIN;
+//        this.MILES_USED = MILES_USED;
+//        this.DATE_OF_TRANSACTION = DATE_OF_TRANSACTION;
+//
+//    }
+//
+//    public AccountLogDto(AccountLog accountLog ){
+//        this.ACCOUNT_LOG_ID = accountLog.getACCOUNT_LOG_ID();
+//        this.TypeAccountMnemonic = accountLog.getTYPE_ACCOUNT().getMnemonic();
+//        this.MEMBER_ID = accountLog.getMEMBER_ID();
+//        this.MILES_GAIN = accountLog.getMILES_GAIN();
+//        this.MILES_USED = accountLog.getMILES_USED();
+//        this.DATE_OF_TRANSACTION = accountLog.getDATE_OF_TRANSACTION();
+//
+//    }
+//
+//    public AccountLog buildAccountLog(TypeAccount typeAccount){
+//        return new AccountLog(this.getACCOUNT_LOG_ID(),typeAccount, this.getMEMBER_ID(),this.getMILES_GAIN(),this.getMILES_USED(),this.getDATE_OF_TRANSACTION());
+//    }
+//    public Long getACCOUNT_LOG_ID() {
+//        return ACCOUNT_LOG_ID;
+//    }
+//
+//    public void setACCOUNT_LOG_ID(Long ACCOUNT_LOG_ID) {
+//        this.ACCOUNT_LOG_ID = ACCOUNT_LOG_ID;
+//    }
+//
+//    public String getTypeAccountMnemonic() {
+//        return TypeAccountMnemonic;
+//    }
+//
+//    public void setTypeAccountMnemonic(String typeAccountMnemonic) {
+//        TypeAccountMnemonic = typeAccountMnemonic;
+//    }
+//
+//    public Long getMEMBER_ID() {
+//        return MEMBER_ID;
+//    }
+//
+//    public void setMEMBER_ID(Long MEMBER_ID) {
+//        this.MEMBER_ID = MEMBER_ID;
+//    }
+//
+//    public Long getMILES_GAIN() {
+//        return MILES_GAIN;
+//    }
+//
+//    public void setMILES_GAIN(Long MILES_GAIN) {
+//        this.MILES_GAIN = MILES_GAIN;
+//    }
+//
+//    public Long getMILES_USED() {
+//        return MILES_USED;
+//    }
+//
+//    public void setMILES_USED(Long MILES_USED) {
+//        this.MILES_USED = MILES_USED;
+//    }
+//
+//    public LocalDate getDATE_OF_TRANSACTION() {
+//        return DATE_OF_TRANSACTION;
+//    }
+//
+//    public void setDATE_OF_TRANSACTION(LocalDate DATE_OF_TRANSACTION) {
+//        this.DATE_OF_TRANSACTION = DATE_OF_TRANSACTION;
+//    }
+//
+//    @Override
+//    public boolean equals(Object o) {
+//        if (this == o) return true;
+//        if (o == null || getClass() != o.getClass()) return false;
+//        AccountLogDto that = (AccountLogDto) o;
+//        return Objects.equals(ACCOUNT_LOG_ID, that.ACCOUNT_LOG_ID) &amp;&amp; Objects.equals(TypeAccountMnemonic, that.TypeAccountMnemonic) &amp;&amp; Objects.equals(MEMBER_ID, that.MEMBER_ID) &amp;&amp; Objects.equals(MILES_GAIN, that.MILES_GAIN) &amp;&amp; Objects.equals(MILES_USED, that.MILES_USED) &amp;&amp; Objects.equals(DATE_OF_TRANSACTION, that.DATE_OF_TRANSACTION);
+//    }
+//
+//    @Override
+//    public int hashCode() {
+//        return Objects.hash(ACCOUNT_LOG_ID, TypeAccountMnemonic, MEMBER_ID, MILES_GAIN, MILES_USED, DATE_OF_TRANSACTION);
+//    }
+//
+//    @Override
+//    public String toString() {
+//        return &quot;AccountLogDto{&quot; +
+//                &quot;ACCOUNT_LOG_ID=&quot; + ACCOUNT_LOG_ID +
+//                &quot;, TypeAccountMnemonic='&quot; + TypeAccountMnemonic + '\'' +
+//                &quot;, MEMBER_ID=&quot; + MEMBER_ID +
+//                &quot;, MILES_GAIN=&quot; + MILES_GAIN +
+//                &quot;, MILES_USED=&quot; + MILES_USED +
+//                &quot;, DATE_OF_TRANSACTION=&quot; + DATE_OF_TRANSACTION +
+//                '}';
+//    }
+
+    //    public String getAccountByTypeMnemonic() {
+//        return ACCOUNT_LOG_ID;
+//    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.3.201901230119</span></div></body></html>
