@@ -10,4 +10,5 @@ public interface AccountLogTranslator {
 
     List<AccountLog> getAllAccountLogs();
 
+    AccountLog getAccountLogByPK(long transactionID);
 }

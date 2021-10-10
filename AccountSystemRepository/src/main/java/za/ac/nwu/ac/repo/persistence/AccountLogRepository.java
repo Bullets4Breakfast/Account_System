@@ -10,13 +10,5 @@ import za.ac.nwu.ac.domain.persistence.TypeAccount;
 
 @Repository
 public interface AccountLogRepository extends JpaRepository<AccountLog, Long>{
-//    @Query(value = "SELECT " +
-//            "       TYPE_ACCOUNT_ID," +
-//            "       ACCOUNT_NAME," +
-//            "       START_DATE," +
-//            "       MNEMONIC," +
-//            "      FROM " +
-//            "       cmpg323ACCOUNTSYSTEM.TypeAccount" +
-//            "      WHERE MNEMONIC = :mnemonic ", nativeQuery = true)
-//    TypeAccount getAccountTypeByMnemonic(String mnemonic);
+
 }

@@ -3,6 +3,7 @@ package za.ac.nwu.ac.logic.flow.impl;
 
 import org.springframework.stereotype.Component;
 import za.ac.nwu.ac.domain.dto.AccountLogDto;
+import za.ac.nwu.ac.domain.dto.AccountTypeDto;
 import za.ac.nwu.ac.domain.persistence.AccountLog;
 import za.ac.nwu.ac.logic.flow.FetchAccountLogFlow;
 import za.ac.nwu.ac.repo.persistence.AccountLogRepository;
@@ -34,5 +35,11 @@ public class FetchAccountLogFlowImpl implements FetchAccountLogFlow {
         }
 
         return accountLogDtos;
+    }
+
+    @Override
+    public AccountLogDto getAccountTypeByTransactionID(Long transactionID) {
+        AccountLog accountLog = translator.getAccountLogByPK((transactionID));
+        return null != accountLog ? new AccountLogDto(accountLog):null;
     }
 }

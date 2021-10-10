@@ -60,27 +60,27 @@ public class AccountLogController {
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
-//    @GetMapping("{mnemonic}")
-//    @ApiOperation(value = "Fetches the specified AccountType.", notes = "Fetches the AccountType corresponding to the given mnemonic.")
-//    @ApiResponses(value = {
-//            @ApiResponse(code = 200, message = "Goal found"),
-//            @ApiResponse(code = 400, message = "Bad Request", response = GeneralResponse.class),
-//            @ApiResponse(code = 404, message = "Resource not found", response = GeneralResponse.class),
-//            @ApiResponse(code = 500, message = "Internal Server Error", response = GeneralResponse.class),
-//    })
-//    public ResponseEntity<GeneralResponse<AccountTypeDto>> getAccountType(
-//            @ApiParam(value = "The mnemonic that uniquely identifies the AccountType.",
-//            example = "MILES",
-//            name = "mnemonic",
-//            required = true)
-//        @PathVariable("mnemonic") final String mnemonic){
-//
-//        AccountTypeDto acccountLog = fetchAccountLogFlow.getAccountTypeByMnemonic(mnemonic);
-//
-//        GeneralResponse<AccountTypeDto> response = new GeneralResponse<>(true , accountType);
-//
-//        return new ResponseEntity<>(response, HttpStatus.OK);
-//    }
+    @GetMapping("{transactionID}")
+    @ApiOperation(value = "Fetches the specified AccountLog.", notes = "Fetches the transactionID corresponding to the given transactionID.")
+    @ApiResponses(value = {
+            @ApiResponse(code = 200, message = "Transaction found"),
+            @ApiResponse(code = 400, message = "Bad Request", response = GeneralResponse.class),
+            @ApiResponse(code = 404, message = "Resource not found", response = GeneralResponse.class),
+            @ApiResponse(code = 500, message = "Internal Server Error", response = GeneralResponse.class),
+    })
+    public ResponseEntity<GeneralResponse<AccountLogDto>> getAccountLog(
+            @ApiParam(value = "The mnemonic that uniquely identifies the AccountLog.",
+            example = "5001",
+            name = "transactionID",
+            required = true)
+        @PathVariable("transactionID") final Long transactionID){
+
+        AccountLogDto AccountLog = fetchAccountLogFlow.getAccountTypeByTransactionID(transactionID);
+
+        GeneralResponse<AccountLogDto> response = new GeneralResponse<>(true , AccountLog);
+
+        return new ResponseEntity<>(response, HttpStatus.OK);
+    }
 
 
 }

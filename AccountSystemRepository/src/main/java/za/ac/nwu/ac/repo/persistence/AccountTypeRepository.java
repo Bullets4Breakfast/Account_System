@@ -17,19 +17,19 @@ public interface AccountTypeRepository extends JpaRepository<TypeAccount, Long>{
             "       RUBENACC.TYPE_ACCOUNT" +
             "      WHERE MNEMONIC = :mnemonic ", nativeQuery = true)
     TypeAccount getAccountTypeByMnemonicNativeQuery(String mnemonic);
-//
-//    @Query(value = "SELECT " +
-//            "       at" +
-//            "      FROM " +
-//            "           TypeAccount at" +
-//            "       WHERE at.mnemonic = :mnemonic ")
-//    TypeAccount getAccountTypeByMnemonic(String mnemonic);
-//
+
+    @Query(value = "SELECT " +
+            "       at" +
+            "      FROM " +
+            "           TypeAccount at" +
+            "       WHERE at.mnemonic = :mnemonic ")
+    TypeAccount getAccountTypeByMnemonic(String mnemonic);
+
 //    @Query(value = "SELECT new za.ac.nwu.ac.domain.dto.AccountTypeDto( " +
-//            "       at.mnemonic," +
-//            "       at.account_Name," +
-//            "       at.start_Date," +
-//            "    FROM," +
+//            "       at.MNEMONIC," +
+//            "       at.ACCOUNT_NAME," +
+//            "       at.TART_DATE) " +
+//            "    FROM" +
 //            "       TypeAccount at" +
 //            "    WHERE at.mnemonic = :mnemonic " )
 //    AccountTypeDto getAccountTypeDtoByMnemonic(String mnemonic);
